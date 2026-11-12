@@ -1,0 +1,4 @@
+node_modules/
+# MediaPipe 모델은 npm install 때 scripts/download-models.mjs 가 내려받는다
+models/
+*.log

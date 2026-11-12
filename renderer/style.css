@@ -1,0 +1,170 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+  color: #fff;
+  font-family: 'Segoe UI', 'Malgun Gothic', sans-serif;
+}
+
+/* 캔버스에 (좌우 반전된) 카메라 프레임과 랜드마크를 함께 그린다 */
+#output {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain;
+}
+
+#hud {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.55);
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+#mode-name {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+#fps {
+  color: #9aa0a6;
+  font-variant-numeric: tabular-nums;
+}
+
+#guide {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.55);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.guide-title {
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+#guide dl {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 2px 14px;
+  margin: 0;
+}
+
+#guide dt {
+  color: #c4c7c5;
+}
+
+#guide dd {
+  margin: 0;
+}
+
+#lip-panel {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  width: 340px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.55);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+#lip-panel .panel-title {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+#lip-state {
+  margin-left: 6px;
+  padding: 0 6px;
+  border-radius: 4px;
+  background: #5f6368;
+  font-size: 12px;
+}
+
+#lip-panel.on #lip-state {
+  background: #1a73e8;
+}
+
+#lip-status {
+  color: #c4c7c5;
+}
+
+.meters {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 4px 8px;
+  margin: 6px 0;
+}
+
+.meter {
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+}
+
+.meter > div {
+  width: 0;
+  height: 100%;
+  background: #69f0ae;
+}
+
+#lip-last {
+  min-height: 1.5em;
+  font-weight: 600;
+}
+
+.lip-actions {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.lip-actions button {
+  padding: 4px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+.lip-actions button:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+#status {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 80vw;
+  padding: 14px 20px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.75);
+  font-size: 16px;
+  text-align: center;
+  white-space: pre-line;
+}
+
+#status.error {
+  color: #ff8a80;
+}

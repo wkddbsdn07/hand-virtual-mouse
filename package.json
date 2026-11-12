@@ -1,0 +1,19 @@
+{
+  "name": "mediapipe-body-tracker",
+  "version": "1.0.0",
+  "description": "Electron + MediaPipe 웹캠 손 제스처 가상 마우스",
+  "private": true,
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "models": "node scripts/download-models.mjs",
+    "postinstall": "node scripts/download-models.mjs"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "^3.8.1",
+    "@mediapipe/tasks-vision": "^1.2.0"
+  },
+  "devDependencies": {
+    "electron": "^45.1.0"
+  }
+}

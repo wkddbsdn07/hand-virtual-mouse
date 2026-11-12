@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>손 가상 마우스</title>
+    <link rel="stylesheet" href="style.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "@mediapipe/tasks-vision": "../node_modules/@mediapipe/tasks-vision/vision_bundle.mjs"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <canvas id="output"></canvas>
+
+    <div id="hud">
+      <div id="mode-name">가상 마우스</div>
+      <div id="info"></div>
+      <div id="fps"></div>
+    </div>
+
+    <div id="guide">
+      <div class="guide-title">제스처</div>
+      <dl>
+        <dt>손 움직이기</dt><dd>포인터 이동</dd>
+        <dt>엄지+검지 꼬집기</dt><dd>클릭 · 쥔 채 움직이면 드래그</dd>
+        <dt>두 손 꼬집고 벌리기</dt><dd>사각형 선택</dd>
+        <dt>엄지+중지 쥐고 위아래</dt><dd>스크롤</dd>
+        <dt>엄지+약지 / 엄지+소지</dt><dd>복사 / 붙여넣기</dd>
+        <dt>✊ 주먹 쥐고 ← → ↑ ↓</dt><dd>창을 왼쪽 반 / 오른쪽 반 / 최대화 / 작게</dd>
+        <dt>🖐🖐 두 손 펴서 벌리기</dt><dd>커튼 열기 — 화면 분할</dd>
+        <dt>🖐🖐 두 손 펴서 모으기</dt><dd>커튼 닫기 — 바탕화면 보기</dd>
+        <dt>👄 입력 직후 ✌ / 🤟</dt><dd>입모양 결과를 2번 / 3번 후보로 고치기</dd>
+      </dl>
+    </div>
+
+    <div id="lip-panel">
+      <div class="panel-title">👄 입모양 입력 <span id="lip-state">꺼짐</span></div>
+      <div id="lip-status"></div>
+      <div class="meters">
+        <span>입</span><div id="lip-mouth" class="meter"><div></div></div>
+        <span>목소리</span><div id="lip-voice" class="meter"><div></div></div>
+      </div>
+      <div id="lip-last"></div>
+      <div class="lip-actions">
+        <button id="lip-toggle">켜기</button>
+        <button id="lip-undo">마지막 학습 취소</button>
+        <button id="lip-clear">학습 초기화</button>
+      </div>
+    </div>
+
+    <div id="status" hidden></div>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
